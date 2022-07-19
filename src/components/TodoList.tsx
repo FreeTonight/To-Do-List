@@ -5,16 +5,16 @@ import { Droppable } from "react-beautiful-dnd";
 import "./ToDoList.css";
 
 interface props {
-  todos: Array<Todo>;
-  setTodos: React.Dispatch<React.SetStateAction<Array<Todo>>>;
-  setCompletedTodos: React.Dispatch<React.SetStateAction<Array<Todo>>>;
-  CompletedTodos: Array<Todo>;
+  todos: Todo[];
+  setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+  completedTodos: Todo[];
 }
 
 const TodoList: React.FC<props> = ({
   todos,
   setTodos,
-  CompletedTodos,
+  completedTodos,
   setCompletedTodos,
 }) => {
   return (
@@ -50,10 +50,10 @@ const TodoList: React.FC<props> = ({
             }`}
           >
             <span className="todos_heading">Completed</span>
-            {CompletedTodos?.map((todo, index) => (
+            {completedTodos?.map((todo, index) => (
               <SingleTodo
                 index={index}
-                todos={CompletedTodos}
+                todos={completedTodos}
                 todo={todo}
                 key={todo.id}
                 setTodos={setCompletedTodos}
